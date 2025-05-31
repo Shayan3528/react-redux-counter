@@ -1,4 +1,5 @@
 import { Provider } from "react-redux";
+import DynamicHooksCounter from "./Component/DynamicHookCounter";
 import HooksCounter from "./Component/HooksCounter";
 import Sum from "./Component/Sum";
 import store from "./Redux/store";
@@ -12,8 +13,8 @@ function App() {
         </h1>
         {/* <Counter index={0} />
         <Counter index={1} /> */}
-        <HooksCounter index={0} />
-        <HooksCounter index={1} />
+        <HooksCounter />
+        <DynamicHooksCounter />
         <Sum />
       </div>
     </Provider>

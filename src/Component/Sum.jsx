@@ -1,7 +1,8 @@
-import {connect} from "react-redux";
+import { useSelector } from "react-redux";
 
+function Sum() {
+  const total = useSelector((state) => state.counter.value+ state.dynamicCounter.value);
 
- function Sum({total}) {
   return (
     <div className="max-w-md mx-auto mt-10 space-y-5">
       <div className="p-4 h-auto flex flex-col items-center justify-center space-y-5 bg-white rounded shadow">
@@ -12,10 +13,4 @@ import {connect} from "react-redux";
   );
 }
 
-const mapStateToProps=(state)=>{
-    return{
-        total:state.counters.reduce((sum,val)=>sum+val,0)
-    }
-}
-
-export default connect(mapStateToProps)(Sum);
+export default Sum;

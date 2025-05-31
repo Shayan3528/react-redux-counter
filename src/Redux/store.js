@@ -1,8 +1,9 @@
-// store 
+// store
 
-import {createStore} from "redux";
-import counterReducer from "./counter/counterReducer";
+import { createStore } from "redux";
 
-const store = createStore(counterReducer);
+import rootReducer from "./rootReducer.js";
+
+const store = createStore(rootReducer);
 
 export default store;
