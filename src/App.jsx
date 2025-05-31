@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import Counter from "./Component/Counter";
+import HooksCounter from "./Component/HooksCounter";
 import Sum from "./Component/Sum";
 import store from "./Redux/store";
 
@@ -10,8 +10,10 @@ function App() {
         <h1 className="max-w-md mx-auto text-center text-2xl font-bold">
           Simple Counter Application
         </h1>
-        <Counter index={0} />
-        <Counter index={1} />
+        {/* <Counter index={0} />
+        <Counter index={1} /> */}
+        <HooksCounter index={0} />
+        <HooksCounter index={1} />
         <Sum />
       </div>
     </Provider>

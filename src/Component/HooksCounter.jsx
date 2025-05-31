@@ -1,12 +1,24 @@
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "../Redux/counter/actionCreator";
 
-function Counter({ index, count, add, minus }) {
+function HooksCounter({ index }) {
+  const count = useSelector((state) => state.counters);
+  const dispatch = useDispatch();
+console.log(count);
+
+  const add = (val) => {
+    dispatch(increment(val));
+  };
+
+  const minus = (val) => {
+    dispatch(decrement(val));
+  };
+
   return (
     <div className="max-w-md mx-auto mt-10 space-y-5">
       <div className="p-4 h-auto flex flex-col items-center justify-center space-y-5 bg-white rounded shadow">
         <div className="text-2xl font-semibold">
-          <span className=" text-orange-500">Counter_{index + 1}</span>: {count}
+          <span className=" text-orange-500">Counter_{index + 1}</span>: {count[index]}
         </div>
         <div className="flex space-x-3">
           <button
@@ -27,17 +39,4 @@ function Counter({ index, count, add, minus }) {
   );
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    count: state.counters[ownProps.index],
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    add: (value) => dispatch(increment(value)),
-    minus: (value) => dispatch(decrement(value)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default HooksCounter;
